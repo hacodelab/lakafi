@@ -222,6 +222,28 @@
 <a href="https://wa.me/255772912300" target="_blank" class="whatsapp-float">
   <svg viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.82.736 5.47 2.024 7.773L0 32l8.466-2.008A15.93 15.93 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333c-2.61 0-5.055-.71-7.155-1.946l-.512-.303-5.025 1.19 1.237-4.896-.336-.528A13.293 13.293 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.942c-.4-.2-2.363-1.165-2.728-1.298-.366-.132-.632-.2-.898.2-.266.4-1.032 1.298-1.265 1.564-.233.266-.465.3-.865.1-.4-.2-1.688-.622-3.215-1.982-1.188-1.06-1.99-2.37-2.222-2.77-.233-.4-.025-.616.175-.816.18-.178.4-.465.6-.698.2-.233.266-.4.4-.666.133-.266.066-.5-.033-.7-.1-.2-.898-2.163-1.23-2.962-.325-.775-.655-.67-.898-.683-.233-.012-.5-.015-.765-.015-.266 0-.698.1-.1065.5-.366.4-1.398 1.365-1.398 3.33 0 1.966 1.432 3.866 1.632 4.132.2.266 2.82 4.31 6.832 6.042.954.41 1.698.655 2.28.839.958.305 1.83.262 2.52.159.768-.115 2.363-.966 2.697-1.9.333-.932.333-1.73.233-1.9-.1-.166-.366-.266-.765-.465z"/></svg>
 </a>
-<script>function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}</script>
+<script><script>
+function toggleMenu(){
+ document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+function sendWhatsApp() {
+    var name = document.querySelector('input[placeholder="Full name"]').value;
+    var phone = document.querySelector('input[placeholder="+255"]').value;
+    var email = document.querySelector('input[type="email"]').value;
+    var subject = document.querySelector('select').value;
+    var message = document.querySelector('textarea').value;
+
+    var text = "Hello, my name is " + name +
+               "%0APhone: " + phone +
+               "%0AEmail: " + email +
+               "%0ASubject: " + subject +
+               "%0AMessage: " + message;
+
+    var whatsappLink = "https://wa.me/255772912300?text=" + text;
+
+    window.open(whatsappLink, "_blank");
+}
+</script></script>
 </body>
 </html>
