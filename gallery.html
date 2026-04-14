@@ -78,11 +78,89 @@ header {
 .hide {
     display: none;
 }
+    /* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(0,0,0,0.8);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-weight: bold;
+}
+
+.brand-sub {
+    font-size: 12px;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links .active {
+    color: #ff7e5f;
+}
+
+/* CONTACT BUTTON */
+.nav-cta {
+    background: #ff7e5f;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+        <img src="hero.jpeg" alt="LT Logo"/>
+        <div class="brand-text">
+            <span class="brand-name">LAKAFI & TORETTO</span>
+            <span class="brand-sub">Engineering & Supplies</span>
+        </div>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="vision.html">Vision</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="import.html">Import</a></li>
+        <li><a href="trips.html">China Trips</a></li>
+        <li><a href="visa.html">Visa</a></li>
+        <li><a href="tourism.html">Tourism</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+</nav>
+
+<!-- HEADER -->
 <header>
     <h2>Our Gallery</h2>
 </header>
