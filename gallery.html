@@ -7,43 +7,77 @@
 
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background: #f5f5f5;
-}
-
-header {
-    background: #111;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: white;
-    padding: 15px;
-    text-align: center;
 }
 
+/* HEADER */
+header {
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+/* BUTTONS */
+.buttons {
+    text-align: center;
+    margin: 20px;
+}
+
+.buttons button {
+    padding: 10px 18px;
+    margin: 5px;
+    border: none;
+    border-radius: 25px;
+    background: #ff7e5f;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttons button:hover {
+    background: #feb47b;
+    transform: scale(1.1);
+}
+
+/* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
+    gap: 20px;
     padding: 20px;
 }
 
-.gallery img, .gallery video {
+/* CARD STYLE */
+.item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+}
+
+/* IMAGE & VIDEO */
+.item img, .item video {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
-.placeholder {
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
-    font-size: 14px;
-    border-radius: 10px;
-    height: 200px;
+/* HOVER EFFECT 🔥 */
+.item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
 }
 
+/* HIDE */
+.hide {
+    display: none;
+}
 </style>
 </head>
 
@@ -53,36 +87,54 @@ header {
     <h2>Our Gallery</h2>
 </header>
 
+<!-- BUTTONS -->
+<div class="buttons">
+    <button onclick="filterSelection('all')">All</button>
+    <button onclick="filterSelection('image')">Images</button>
+    <button onclick="filterSelection('video')">Videos</button>
+</div>
+
+<!-- GALLERY -->
 <section class="gallery">
 
     <!-- VIDEO -->
-    <video controls>
-        <source src="video1.mp4" type="video/mp4">
-    </video>
+    <div class="item video">
+        <video controls>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <!-- IMAGES -->
-    <img src="zanzibar1.jpg" alt="">
-    <img src="zanzibar2.jpg" alt="">
-    <img src="car.jpg" alt="">
-    <img src="car2.jpg" alt="">
-    <img src="visa.jpg" alt="">
-    <img src="safari1.jpg" alt="">
-    <img src="safari2.jpg" alt="">
-    <img src="product1.jpeg" alt="">
-    <img src="product2.jpeg" alt="">
-    <img src="hero.jpeg" alt="">
-
-    <!-- PLACEHOLDERS (ongeza baadae) -->
-    <div class="placeholder">Add Image</div>
-    <div class="placeholder">Add Video</div>
-    <div class="placeholder">Add Image</div>
-    <div class="placeholder">Add Video</div>
-    <div class="placeholder">Add Image</div>
-    <div class="placeholder">Add Video</div>
-    <div class="placeholder">Add Image</div>
-    <div class="placeholder">Add Video</div>
+    <div class="item image"><img src="zanzibar1.jpg"></div>
+    <div class="item image"><img src="zanzibar2.jpg"></div>
+    <div class="item image"><img src="car.jpg"></div>
+    <div class="item image"><img src="car2.jpg"></div>
+    <div class="item image"><img src="visa.jpg"></div>
+    <div class="item image"><img src="safari1.jpg"></div>
+    <div class="item image"><img src="safari2.jpg"></div>
+    <div class="item image"><img src="product1.jpeg"></div>
+    <div class="item image"><img src="product2.jpeg"></div>
+    <div class="item image"><img src="hero.jpeg"></div>
 
 </section>
+
+<script>
+function filterSelection(category) {
+    let items = document.getElementsByClassName("item");
+
+    for (let i = 0; i < items.length; i++) {
+        if (category === "all") {
+            items[i].classList.remove("hide");
+        } else {
+            if (items[i].classList.contains(category)) {
+                items[i].classList.remove("hide");
+            } else {
+                items[i].classList.add("hide");
+            }
+        }
+    }
+}
+</script>
 
 </body>
 </html>
